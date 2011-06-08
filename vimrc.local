@@ -1,0 +1,68 @@
+"No bells or flashes
+set vb t_vb=
+
+"Soft wrap on by default
+"set nowrap
+
+"Fold using indentation, start with everything unfolded (up to level 100)
+set foldmethod=indent
+set foldlevel=100
+
+"Always use spaces instead of tabs
+set softtabstop=3 shiftwidth=3
+set expandtab
+
+" Don't show line numbers
+set nonumber
+
+" Be tolerant with newline characters for different platforms.
+set fileformats=unix,mac,dos
+
+"Use html and js snippets in php files: Commenting out, it messes up ack. :S
+" au BufRead *.php set ft=php.html.javascript
+" au BufNewFile *.php set ft=php.html.javascript
+
+" Enable cakephp snippets
+au FileType php set ft=php.cakephp
+
+" XML prettify
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft= 
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
+
+" Ctrl+Shift+h Makes xml files pretty.
+au FileType xml map <C-S-h> :PrettyXML<CR>
+
+" Ctrl+Shift+h makes json files pretty
+au FileType json map <C-S-h> :%!json_xs -f json -t json-pretty<CR>
+
+" Banner command
+autocmd FileType vim map <C-S-b> I"<Del>  <Esc>A  "<Del><Esc>yyp0lv$hhr=yykPjj
+autocmd FileType javascript,php,c,cpp map <C-S-b> I//  <Esc>A  //<Esc>yyp0llv$hhhr=yykPjj
+autocmd FileType python,ruby,sh,zsh map <C-S-b> I#  <Esc>A  #<Esc>yyp0lv$hhr=yykPjj
+autocmd FileType css map <C-S-b> I/*  <Esc>A  */<Esc>yyp0llv$r=$hc$*/<Esc>yykPjj

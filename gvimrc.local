@@ -1,0 +1,6 @@
+" No Scrollbars
+set guioptions=aAce
+
+
+" Default gui color scheme
+color desertEx
