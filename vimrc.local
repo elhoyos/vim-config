@@ -9,8 +9,11 @@ set foldmethod=indent
 set foldlevel=100
 
 "Always use spaces instead of tabs
-set softtabstop=3 shiftwidth=3
+set softtabstop=4 shiftwidth=4
 set expandtab
+
+" Don't show invisibles
+set nolist
 
 " Don't show line numbers
 set nonumber
