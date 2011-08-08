@@ -69,3 +69,18 @@ autocmd FileType vim map <C-S-b> I"<Del>  <Esc>A  "<Del><Esc>yyp0lv$hhr=yykPjj
 autocmd FileType javascript,php,c,cpp map <C-S-b> I//  <Esc>A  //<Esc>yyp0llv$hhhr=yykPjj
 autocmd FileType python,ruby,sh,zsh map <C-S-b> I#  <Esc>A  #<Esc>yyp0lv$hhr=yykPjj
 autocmd FileType css map <C-S-b> I/*  <Esc>A  */<Esc>yyp0llv$r=$hc$*/<Esc>yykPjj
+
+" Escape code. Useful for pasting into wordpress.
+nnoremap <D-&> :'[,']call EscapeCode()<CR>
+vnoremap <D-&> :call EscapeCode()<CR>
+function EscapeCode()
+    silent s/&/\&amp;/eg
+    silent s/</\&lt;/eg
+    silent s/>/\&gt;/eg
+    silent s/    /\t/eg
+    silent s/\t/\&#9;/eg
+endfunction
+
+
+
+
