@@ -7,11 +7,11 @@ vim_plugin_task "jquery" do
 end
 
 vim_plugin_task "vim-snippets-jquery" do
-  sh "curl http://gitorious.org/dziq-configs/dziq-configs/archive-tarball/master > tmp/vim-snippets-jquery.tar.gz"
-  sh "tar zxvf tmp/vim-snippets-jquery.tar.gz"
+  # sh "curl http://gitorious.org/dziq-configs/dziq-configs/archive-tarball/master > tmp/vim-snippets-jquery.tar.gz"
+  sh "tar -C tmp -zxvf tmp/vim-snippets-jquery.tar.gz"
   sh "mv tmp/dziq-configs-dziq-configs/.vim/snippets/javascript-jquery snippets/"
   sh "rm -rf tmp/dziq-configs-dziq-configs"
-  sh "rm -rf tmp/dziq-configs-dziq-configs.tar.gz"
+  # sh "rm -rf tmp/dziq-configs-dziq-configs.tar.gz"
 end
 
 vim_plugin_task "ragtag", "https://github.com/tpope/vim-ragtag.git"
