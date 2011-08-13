@@ -14,7 +14,7 @@ vim_plugin_task "vim-snippets-jquery" do
   sh "rm -rf tmp/dziq-configs-dziq-configs.tar.gz"
 end
 
-vim_plugin_task "ragtag", "https://github.com/tpope/vim-ragtag.git"
+vim_plugin_task "zencoding", "git://github.com/mattn/zencoding-vim.git"
 
 vim_plugin_task "vim-snippets", "git@github.com:rvega/vim-snippets.git"
 

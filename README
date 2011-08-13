@@ -1,2 +1,3 @@
 See the customization section at https://github.com/carlhuda/janus/blob/master/README.markdown
 
+run "rake link" to create symlinks
