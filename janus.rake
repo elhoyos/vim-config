@@ -16,6 +16,8 @@ end
 
 vim_plugin_task "zencoding", "git://github.com/mattn/zencoding-vim.git"
 
+vim_plugin_task "ragtag", "git://github.com/tpope/vim-ragtag.git"
+
 vim_plugin_task "vim-snippets", "git@github.com:rvega/vim-snippets.git"
 
 vim_plugin_task "matchit", "git://github.com/edsono/vim-matchit.git"
