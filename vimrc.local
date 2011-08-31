@@ -9,7 +9,7 @@ set foldmethod=indent
 set foldlevel=100
 
 "Always use spaces instead of tabs
-set softtabstop=4 shiftwidth=4
+set softtabstop=2 shiftwidth=2
 set expandtab
 
 " Don't show invisibles
