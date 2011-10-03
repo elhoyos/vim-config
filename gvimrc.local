@@ -4,3 +4,8 @@ set guioptions=aAce
 
 " Default gui color scheme
 color desertEx
+
+" cmd+/ toggles comments:
+map <D-/>  :TComment<cr> 
+imap <D-/> <c-o>:TComment<cr>
+vmap <D-/> :TCommentMaybeInline<cr>

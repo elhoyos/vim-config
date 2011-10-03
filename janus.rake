@@ -26,3 +26,6 @@ vim_plugin_task "matchit", "git://github.com/edsono/vim-matchit.git"
 vim_plugin_task "repeat", "git://github.com/tpope/vim-repeat.git"
 
 vim_plugin_task "delimitMate", "git://github.com/Raimondi/delimitMate.git"
+
+vim_plugin_task "tcomment", "git://github.com/tomtom/tcomment_vim.git"
+skip_vim_plugin "nerdcommenter"
