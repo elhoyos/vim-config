@@ -78,3 +78,15 @@ function! Markdown2wp()
     %s@</code></pre>@[/cc]@eg
     "silent s/\t/\&#9;/eg
 endfunction
+
+" Put a colon at the end of the line
+nmap ;; A;<Esc>
+imap ;; <Esc>A;<Esc>
+
+" Put a comma at the end of the line
+nmap ,, A,<Esc>
+imap ,, <Esc>A,<Esc>
+
+" Command-T open files in new tab by default
+let g:CommandTAcceptSelectionTabMap='<CR>'
+
