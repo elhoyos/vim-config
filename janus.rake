@@ -29,3 +29,5 @@ vim_plugin_task "delimitMate", "git://github.com/Raimondi/delimitMate.git"
 
 vim_plugin_task "tcomment", "git://github.com/tomtom/tcomment_vim.git"
 skip_vim_plugin "nerdcommenter"
+
+vim_plugin_task "solarized" "git://github.com/altercation/vim-colors-solarized.git"
